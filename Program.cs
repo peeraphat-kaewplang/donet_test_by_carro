@@ -65,8 +65,11 @@ builder.Services.AddVersionedApiExplorer(options =>
     options.SubstituteApiVersionInUrl = true;
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();
+builder.Services.AddScoped<IEmail, EmailService>();
 builder.Services.AddScoped<IAuthentication , AuthenticationService>();
+builder.Services.AddScoped<IQuestionnaire, QuestionnaireService>();
 
 var app = builder.Build();
 
@@ -74,7 +77,6 @@ app.UseCors(x => x
        .AllowAnyOrigin()
        .AllowAnyMethod()
        .AllowAnyHeader());
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

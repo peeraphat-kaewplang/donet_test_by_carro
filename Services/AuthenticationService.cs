@@ -41,7 +41,7 @@ namespace donet_test_by_carro.Services
                     CreateAdd = DateTime.Now
                 };
 
-                _context.Add(user);
+                _context.User.Add(user);
 
                 await _context.SaveChangesAsync();
 
