@@ -1,4 +1,5 @@
 ﻿using donet_test_by_carro.Authorization;
+using donet_test_by_carro.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace donet_test_by_carro.Controllers.v1
@@ -9,16 +10,24 @@ namespace donet_test_by_carro.Controllers.v1
     [ApiVersion("1.0")]
     public class Questionnaires : ControllerBase
     {
+
+        public Questionnaires()
+        {
+            
+        }
+
         [AllowAnonymous]
         [HttpGet("allow")]
         public string Get()
         {
-            return "ming";
+          
+            return "asdasd";
         }
         [HttpGet("all")]
-        public string GetAll()
+        public User GetAll()
         {
-            return "all";
+            var context = (User?)HttpContext.Items["User"];
+            return context!;
         }
     }
 }

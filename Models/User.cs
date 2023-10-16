@@ -1,4 +1,6 @@
-﻿namespace donet_test_by_carro.Models
+﻿using System.Text.Json.Serialization;
+
+namespace donet_test_by_carro.Models
 {
     public class User
     {
@@ -9,6 +11,7 @@
         public byte[] PasswordSalt { get; set; } = new byte[32];
         public string? VerificationToken { get; set; }
         public DateTime CreateAdd { get; set; }
+        [JsonIgnore]
         public List<Questionnaires> Questionnaires { get; set; }
     }
 }
